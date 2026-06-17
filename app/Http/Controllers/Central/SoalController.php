@@ -10,7 +10,7 @@ class SoalController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Soal::with('konten.subBab')->get()
+            'data' => Soal::with('konten.subBab.bab.mataPelajaran')->get()
         ]);
     }
 }

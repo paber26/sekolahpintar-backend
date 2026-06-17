@@ -10,7 +10,7 @@ class KontenController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => Konten::with('subBab.bab')->get()
+            'data' => Konten::with('subBab.bab.mataPelajaran')->get()
         ]);
     }
 }
