@@ -26,6 +26,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::apiResource('sekolah', \App\Http\Controllers\Central\SekolahController::class);
 
     // Master Data
+    Route::get('preview-lms', [\App\Http\Controllers\Central\PreviewLMSController::class, 'index']);
     Route::apiResource('mata-pelajaran', \App\Http\Controllers\Central\MataPelajaranController::class);
     Route::apiResource('bab', \App\Http\Controllers\Central\BabController::class);
     Route::apiResource('sub-bab', \App\Http\Controllers\Central\SubBabController::class);
