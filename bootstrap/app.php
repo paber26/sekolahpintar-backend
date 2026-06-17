@@ -30,7 +30,7 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         // Setup Sanctum / Stateful API
-        $middleware->statefulApi();
+        // $middleware->statefulApi(); // Dinonaktifkan karena kita menggunakan Bearer Token di Vue SPA
         
         // Custom Role Middleware for Spatie
         $middleware->alias([

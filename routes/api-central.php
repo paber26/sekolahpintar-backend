@@ -20,7 +20,7 @@ Route::prefix('auth')->group(function () {
 });
 
 // ─── Protected (SuperAdmin) ───────────────────────────────────────────────────
-Route::middleware(['auth:sanctum', 'role:superadmin'])->group(function () {
+Route::middleware(['auth:sanctum'])->group(function () {
 
     // Kelola Sekolah (Tenant)
     Route::apiResource('sekolah', \App\Http\Controllers\Central\SekolahController::class);

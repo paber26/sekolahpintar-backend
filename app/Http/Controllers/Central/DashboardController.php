@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Http\Controllers\Central;
+
+use App\Http\Controllers\Controller;
+
+class DashboardController extends Controller
+{
+    public function index()
+    {
+        return response()->json([
+            'status' => 'ok'
+        ]);
+    }
+}
