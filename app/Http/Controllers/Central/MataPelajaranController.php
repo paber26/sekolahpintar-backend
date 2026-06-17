@@ -10,7 +10,7 @@ class MataPelajaranController extends Controller
     public function index()
     {
         return response()->json([
-            'data' => MataPelajaran::with('kurikulum')->get()
+            'data' => MataPelajaran::all()
         ]);
     }
 }

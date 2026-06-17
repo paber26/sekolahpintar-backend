@@ -10,9 +10,7 @@ return new class extends Migration
     {
         Schema::create('master_mata_pelajaran', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('kurikulum_id')->nullable()->constrained('master_kurikulum')->nullOnDelete();
             $table->string('nama'); // e.g. Matematika
-            $table->string('tingkat'); // e.g. SMA
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });

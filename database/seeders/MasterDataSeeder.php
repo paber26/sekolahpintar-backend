@@ -11,16 +11,20 @@ class MasterDataSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Kurikulum (Sudah ada, atau buat baru)
-        $kurikulumNasional = Kurikulum::firstOrCreate(
-            ['nama' => 'Kurikulum Merdeka'],
-            ['tahun' => '2024', 'is_active' => true]
-        );
-
-        // 2. Mata Pelajaran
+        // 1. Mata Pelajaran
         $matematika = \App\Models\Central\MataPelajaran::firstOrCreate(
             ['nama' => 'Matematika'],
-            ['tingkat' => 'SMA', 'kurikulum_id' => $kurikulumNasional->id, 'is_active' => true]
+            ['is_active' => true]
+        );
+
+        $fisika = \App\Models\Central\MataPelajaran::firstOrCreate(
+            ['nama' => 'Fisika'],
+            ['is_active' => true]
+        );
+
+        $biologi = \App\Models\Central\MataPelajaran::firstOrCreate(
+            ['nama' => 'Biologi'],
+            ['is_active' => true]
         );
 
         // 3. Bab
@@ -85,5 +89,25 @@ class MasterDataSeeder extends Seeder
                 );
             }
         }
+
+        // Dummy Data Fisika
+        $babMekanika = \App\Models\Central\Bab::firstOrCreate(
+            ['mata_pelajaran_id' => $fisika->id, 'judul' => 'Mekanika Klasik'],
+            ['urutan' => 1, 'is_active' => true]
+        );
+        \App\Models\Central\SubBab::firstOrCreate(
+            ['bab_id' => $babMekanika->id, 'judul' => 'Hukum Newton'],
+            ['urutan' => 1, 'is_active' => true]
+        );
+
+        // Dummy Data Biologi
+        $babSel = \App\Models\Central\Bab::firstOrCreate(
+            ['mata_pelajaran_id' => $biologi->id, 'judul' => 'Struktur Sel'],
+            ['urutan' => 1, 'is_active' => true]
+        );
+        \App\Models\Central\SubBab::firstOrCreate(
+            ['bab_id' => $babSel->id, 'judul' => 'Mitokondria'],
+            ['urutan' => 1, 'is_active' => true]
+        );
     }
 }
