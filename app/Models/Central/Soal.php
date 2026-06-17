@@ -11,22 +11,10 @@ class Soal extends Model
 
     protected $connection = 'central';
     protected $table = 'master_soal';
+    protected $guarded = [];
 
-    protected $fillable = [
-        'materi_id',
-        'pertanyaan',
-        'pilihan_a',
-        'pilihan_b',
-        'pilihan_c',
-        'pilihan_d',
-        'pilihan_e',
-        'jawaban_benar',
-        'pembahasan',
-        'bobot',
-    ];
-
-    public function materi()
+    public function konten()
     {
-        return $this->belongsTo(Materi::class);
+        return $this->belongsTo(Konten::class, 'konten_id');
     }
 }

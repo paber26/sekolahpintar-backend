@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Central;
 
 use App\Http\Controllers\Controller;
-use App\Models\Central\Soal;
+use App\Models\Central\Bab;
 
-class SoalController extends Controller
+class BabController extends Controller
 {
     public function index()
     {
         return response()->json([
-            'data' => Soal::with('konten.subBab')->get()
+            'data' => Bab::with('mataPelajaran')->get()
         ]);
     }
 }

@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('master_soal', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('materi_id')->constrained('master_materi')->onDelete('cascade');
+            $table->foreignId('konten_id')->constrained('master_konten')->cascadeOnDelete();
             $table->text('pertanyaan');
             $table->string('pilihan_a');
             $table->string('pilihan_b');

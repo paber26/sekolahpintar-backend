@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Central;
 
 use App\Http\Controllers\Controller;
-use App\Models\Central\Soal;
+use App\Models\Central\Konten;
 
-class SoalController extends Controller
+class KontenController extends Controller
 {
     public function index()
     {
         return response()->json([
-            'data' => Soal::with('konten.subBab')->get()
+            'data' => Konten::with('subBab.bab')->get()
         ]);
     }
 }

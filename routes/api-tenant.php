@@ -34,9 +34,10 @@ Route::middleware(['auth:sanctum', 'role:guru'])->prefix('guru')->group(function
     Route::get('kelas', [\App\Http\Controllers\Tenant\Guru\KelasController::class, 'index']);
     Route::get('kelas/{kelas}/siswa', [\App\Http\Controllers\Tenant\Guru\KelasController::class, 'siswa']);
 
-    // Materi per kelas (diambil dari central DB)
-    Route::get('materi', [\App\Http\Controllers\Tenant\Guru\MateriController::class, 'index']);
-    Route::post('materi/assign', [\App\Http\Controllers\Tenant\Guru\MateriController::class, 'assign']);
+    // LMS / Katalog Pelajaran dari Pusat
+    Route::get('katalog', [\App\Http\Controllers\Tenant\LMSController::class, 'getKatalogPelajaran']);
+    Route::post('katalog/adopsi', [\App\Http\Controllers\Tenant\LMSController::class, 'adopsiSubBab']);
+    Route::get('katalog/kelas/{kelasId}', [\App\Http\Controllers\Tenant\LMSController::class, 'getMateriKelas']);
 
     // Kuis
     Route::apiResource('kuis', \App\Http\Controllers\Tenant\Guru\KuisController::class);

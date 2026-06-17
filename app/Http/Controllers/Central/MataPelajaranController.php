@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\Central;
 
 use App\Http\Controllers\Controller;
-use App\Models\Central\Materi;
+use App\Models\Central\MataPelajaran;
 
-class MateriController extends Controller
+class MataPelajaranController extends Controller
 {
     public function index()
     {
         return response()->json([
-            'data' => Materi::with('kurikulum')->get()
+            'data' => MataPelajaran::with('kurikulum')->get()
         ]);
     }
 }
